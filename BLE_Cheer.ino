@@ -16,6 +16,8 @@
 CRGB leds[NUM_LEDS];
 float brightness;
 String color;
+String recieved;
+
 
 int delayval = 500; // delay for half a second
 TinyPICO tp = TinyPICO(); //The Tiny Pico library is necessary for the onboard dotstar
@@ -55,14 +57,17 @@ class CharacteristicCallbacks: public BLECharacteristicCallbacks {
         Serial.println("*********");
         Serial.print("Received Value: ");
 
+        
         for (int i = 0; i < rxValue.length(); i++) {
-          color+=rxValue[i];
+          color +=rxValue[i];
           Serial.print(rxValue[i]);
         }
 
+        
+
         Serial.println();
 
-        Serial.println("*********");
+        Serial.println("*********" );
       }
     }
         
@@ -114,7 +119,7 @@ String colorName[] = {"none", "red", "pink", "green", "blue", "cyan", "white", "
  
 int colorRGB[][3] = {     0,  0,  0,  // "none"  // Map of RGB values for each of the Cheerlight color names
                           255,  0,  0,  // "red"
-                          255, 192, 203, // "pink"
+                          255, 119, 218, // "pink"
                           0, 255,  0, // "green"
                           0,  0, 255, // "blue"
                           0, 255, 255, // "cyan",
@@ -134,18 +139,19 @@ void loop() {
       
       
           // Let's convert the value to a char array:
-          char txString[10] = "hello"; // make sure this is big enuffz
+          //char txString[10] = "hello"; // make sure this is big enuffz
 
-          characteristicTX->setValue(txString); //seta o valor que a caracteristica notificará (enviar)       
-          characteristicTX->notify(); // Envia o valor para o smartphone
+          //characteristicTX->setValue(txString); //seta o valor que a caracteristica notificará (enviar)       
+          //characteristicTX->notify(); // Envia o valor para o smartphone
           //String recievedString = txString;
 
-          Serial.print("*** Sent Value: ");
-          Serial.print(txString);
+          //Serial.print("*** Sent Value: ");
+          //Serial.print(txString);
           Serial.println(" ***");
-          //String color = txString;
-          Serial.println("The Color is..." +color);
           setColor(color);
+          //String color = txString;
+          Serial.println("The Color is..." +color +"...");
+          
     
     delay(1000);
 
