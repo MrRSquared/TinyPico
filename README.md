@@ -10,4 +10,6 @@ If you are not familiar with them, cheerlights are smart lights (real or virtual
 
 **bleCheerTouch** Adds two touch buttons to control brightness.
 
-**CheerTinyPico.aia** This is the App Inventor file I used to create the app to cennect the cheerlight data to the light.
+**CheerTinyPico.aia** This is the App Inventor file I used to create the app to cennect the cheerlight data to the light.  In order for this to work, you must use a beta version of the BLE stack for App Inventor.  Though I do not yet have permission to host it here, the [Google Group] (https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!msg/mitappinventortest/Jdb6j82Op28/Uo_fghkRBQAJ) is public.  You want the BLE-with-new-ConnectDevice.aix.
+
+**cheerlights.py** This is a non-app Inventor version that uses micropython instead of C++.  It does require an Internet Connection as I could not get BLE working with micropython.  It is a possiblity, but early in development.
