@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
-"""This is the code is to connect the TinyPico to cheerlights.
+"""This is the code is to connect the TinyPico to cheerlights.  in order for this to work, one must connect it to their network.  You may use
+the tutorial found at https://techtutorialsx.com/2017/06/06/esp32-esp8266-micropython-automatic-connection-to-wifi/ to help you get started with that.
 
 Our main cheerlight code is adapted from Jousef Rousek  and can be found here https://github.com/stlk/micropython/blob/master/workshop/ """
 
