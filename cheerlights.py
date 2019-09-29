@@ -27,7 +27,7 @@ neo_pixels = 4
 
 np = neopixel.NeoPixel(machine.Pin(neo_pin),neo_pixels)
 
-#At the moment, we are not using brightness, but it is simple to add.
+
 
 brightness = .5
 
@@ -77,15 +77,12 @@ try:
             data = s.recv(100)
             print(data)
 
-            if data:
-                chunk = str(data, 'utf8')
-                # print(chunk, end='')
-                hash_index = chunk.find('#')
-                if hash_index >= 0:
+            if hash_index >= 0:
                     color = chunk[hash_index + 1: hash_index + 7]
-                    dotstar[0] = cheerMap.get(color)
+                    led_color = tuple(int(c/brightness) for c in cheerMap.get(color))
+                    dotstar[0] = led_color
                     for i in range(neo_pixels):
-                        np[i] = (cheerMap.get(color))
+                        np[i] = (led_color)
                         np.write()
                     x = 1
            
